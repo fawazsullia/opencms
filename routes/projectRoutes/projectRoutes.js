@@ -21,8 +21,16 @@ projectContent : []
 
 try{
 
-const data = await newProject.save()
-await res.status(200).json({ projectId : data.projectId }).end()
+const user = await UserModel.findOne({ userId : projectAdmin })
+
+if(user){
+    const data = await newProject.save()
+    await UserModel.findOneAndUpdate({ userId : projectAdmin}, { $push : { projects : [data.projectId]}})
+    await res.status(200).json({ projectId : data.projectId }).end()
+}
+else {
+    await res.status(400).json({message : "No user found, please login"}).end()
+}
     
 }
 catch(e){
