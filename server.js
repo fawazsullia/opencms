@@ -5,20 +5,23 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 
-app.use(express.json())
 //imports
 const authRoutes = require('./routes/profileRoutes/authentication')
+const profileRoutes = require('./routes/profileRoutes/editProfile')
 
 //constants
 const PORT = process.env.PORT || 5000;
 const URI = process.env.URI;
 
 //middlewares
+app.use(express.json())
+
 
 app.use(cors())
 
 //route middlewares
 app.use('/auth', authRoutes)
+app.use('/profile', profileRoutes)
 
 
 
