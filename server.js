@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 //imports
 const authRoutes = require('./routes/profileRoutes/authentication')
 const profileRoutes = require('./routes/profileRoutes/editProfile')
+const projectRoutes = require('./routes/projectRoutes/projectRoutes')
 
 //constants
 const PORT = process.env.PORT || 5000;
@@ -22,6 +23,7 @@ app.use(cors())
 //route middlewares
 app.use('/auth', authRoutes)
 app.use('/profile', profileRoutes)
+app.use('/project', projectRoutes)
 
 
 
