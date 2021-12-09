@@ -8,18 +8,12 @@ projectName : {
     type : String,
     required : true
 },
-projectId : {
-    type : String,
-    required : true
-},
+projectId : String,
 projectDescription : {
     type : String,
     required : true
 },
-projectUsers : {
-    type : String,
-    required : true
-},
+projectUsers : [],
 projectAdmin : {
     type : String,
     required : true
