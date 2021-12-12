@@ -16,7 +16,6 @@ const newUser = new UserModel({
 userName : userName,
 userId : userId,
 userEmail : userEmail,
-projects : []
 
 })
 

@@ -25,7 +25,6 @@ const user = await UserModel.findOne({ userId : projectAdmin })
 
 if(user){
     const data = await newProject.save()
-    await UserModel.findOneAndUpdate({ userId : projectAdmin}, { $push : { projects : [data.projectId]}})
     await res.status(200).json({ projectId : data.projectId }).end()
 }
 else {
@@ -37,6 +36,26 @@ catch(e){
 res.status(500).json({message : "Something went wrong"}).end()
 }
 
+})
+
+//* delete the project
+router.delete('/del/:id', async (req, res)=> {
+
+    const projectId = req.params.id
+    try{
+        const random = await ProjectModel.findOne({projectId : projectId})
+        if(random){
+        await ProjectModel.findOneAndDelete({ projectId : projectId })
+        await res.status(200).json({message : "Deleted successfully"}).end()
+        }
+        else {
+            res. status(400).json({message : "Project not found"}).end()
+        }
+        
+    }
+    catch(e){
+        res.status(500).json({message : "Something went wrong"}).end()
+    }
 })
 
 
