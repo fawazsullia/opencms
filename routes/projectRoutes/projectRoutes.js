@@ -79,4 +79,30 @@ router.put("/newuser", async (req, res) => {
   }
 });
 
+//* edit project detais
+
+router.put('/edit', async (req, res)=> {
+
+const { projectName, projectDescription, projectId  } = req.body
+
+try{
+
+const project = await ProjectModel.findOne({ projectId : projectId })
+console.log(project)
+if(project){
+
+await ProjectModel.findOneAndUpdate({projectId : projectId}, { projectName : projectName, projectDescription : projectDescription})
+res.status(200).json({message : "Updated successfully"}).end()
+}
+else {
+  re.status(400).json({message : "Project does not exist"}).end()
+}
+
+}
+catch(e){
+res.status(500).json({message : "Something went wrong"}).end()
+}
+
+})
+
 module.exports = router;
