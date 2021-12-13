@@ -24,7 +24,7 @@ projectContent : [{
     createdBy : String,
     title : String,
     description : String,
-    content : [] 
+    content : {}
    }]
 
 });
