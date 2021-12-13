@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 const authRoutes = require('./routes/profileRoutes/authentication')
 const profileRoutes = require('./routes/profileRoutes/editProfile')
 const projectRoutes = require('./routes/projectRoutes/projectRoutes')
+const textContentRoutes = require('./routes/contentRoutes/textRoutes')
 
 //constants
 const PORT = process.env.PORT || 5000;
@@ -24,6 +25,7 @@ app.use(cors())
 app.use('/auth', authRoutes)
 app.use('/profile', profileRoutes)
 app.use('/project', projectRoutes)
+app.use('/text', textContentRoutes)
 
 
 

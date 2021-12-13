@@ -15,7 +15,7 @@ router.post("/create", async (req, res) => {
     projectDescription: projectDescription,
     projectUsers: [projectAdmin],
     projectAdmin: projectAdmin,
-    projectContent: {},
+    projectContent: [],
   });
 
   try {

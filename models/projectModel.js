@@ -18,14 +18,7 @@ projectAdmin : {
     type : String,
     required : true
 },
-projectContent : [{ 
-    contentId : String,
-    type : String,
-    createdBy : String,
-    title : String,
-    description : String,
-    content : {}
-   }]
+projectContent : []
 
 });
 
