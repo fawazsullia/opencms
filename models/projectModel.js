@@ -18,7 +18,7 @@ projectAdmin : {
     type : String,
     required : true
 },
-projectContent : []
+projectContent : {}
 
 });
 
